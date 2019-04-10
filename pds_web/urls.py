@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(r'^$', views.home, name='home')
 ]
+
+#urlpatterns = [
+#    url(r'^$', pages.home, name='home_page'),
+#    url(r'^rack/(?P<rack_name>\w+)/start/$', pages.start, name='start_page'),
+#]
