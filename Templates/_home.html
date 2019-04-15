@@ -22,11 +22,11 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>PDS<br> - Equipe 2</b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="#resumos" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Resumos</a> 
-    <a href="#projeto" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Projeto</a>
-    <a href="#exercicios" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Exercícios</a>
-    <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Equipe</a> 
+    <a href="#" onclick="w3_close()" class="w3-bar-li w3-button w3-hover-white">Home</a> 
+    <a href="#resumos" onclick="w3_close()" class="w3-bar-li w3-button w3-hover-white">Resumos</a> 
+    <a href="#projeto" onclick="w3_close()" class="w3-bar-li w3-button w3-hover-white">Projeto</a>
+    <a href="#exercicios" onclick="w3_close()" class="w3-bar-li w3-button w3-hover-white">Exercícios</a>
+    <a href="#team" onclick="w3_close()" class="w3-bar-li w3-button w3-hover-white">Equipe</a> 
   </div>
 </nav>
 
@@ -66,19 +66,83 @@ body {font-size:16px;}
 
       <!-- Tab content -->
       <div id="Parte1" class="tabcontent">
-          <h3>Part1</h3>
-          <p>London is the capital city of England.</p>
+          <h3>O que são sinais?</h3>
+          <p>
+              Os sinais traduzem a evolução de uma grandeza ao longo do <b>tempo</b> ou <b>espaço</b>. <br>
+              <br>
+              <br>
+
+              Geralmente são divididos em Sinais Contínuos e Discretos, sendo: <br>
+
+              <h4>Sinais Discretos</h4>
+                Um sinal diz-se discreto se o seu domínio for Z ou um intervalo de Z.
+              Só os sinais discretos podem ser armazenados e processados em
+              computadores digitais.<br>
+              <figure>
+                <p><img src="pics/discreto.png" id="img02"  class="w3-image" width=30% ><br>
+                <figcaption>Exemplificação gráfica de um sinal discreto.</figcaption>
+              </figure>
+              <br>
+              <br>
+              <br>
+              <br>
+              <h4>Sinais Contínuos</h4>
+                Um sinal diz-se contínuo se o seu domínio for IR ou um intervalo de IR.
+              A maioria dos sinais físicos são contínuos, p.ex., posição e velocidade de um
+              corpo, fala ou música captada por um microfone, tensão ou corrente num
+              circuito eléctrico.<br>
+
+              <figure>
+                  <p><img src="pics/sinal_analogico.gif" id="img02"  class="w3-image" width=30% ><br>
+                  <figcaption>Exemplificação gráfica de um sinal contínuo.</figcaption>
+              </figure>
+
+
+              <br>
+              <br>
+              <br>
+        
+          </p>
       </div>
 
       <div id="Parte2" class="tabcontent">
-          <h3>Part2</h3>
-          <p>Paris is the capital of France.</p>
-          <p>TEM ALGO ESCRITO AQUI</p>
+          <h3>Sinais em tempo Discreto</h3>
+          - Um sinal de tempo discreto está definido apenas em instantes isolados de tempo. Consequentemente, um sinal de tempo discreto pode ser descrito por uma sequência de números.<br>
+          - Os sinais de tempo discreto são representados pela notação x[n] em que n só está definido para números inteiros. Cada um dos elementos do sinal x é chamado de amostra. Vejamos alguns exemplos:<br>
+          (a) x[n] = n², −6 ≤ n ≤ 6<br>
+            Este sinal é constituído das seguintes amostras x[n]  = {36, 25,16, 9, 4, 1, 0, 1, 4, 9,16, 25, 36}.<br>
+             A figura a seguir mostra um gráfico deste sinal: stem(-6:6, (-6:6).^2); <br>
+
+             Exemplos acima mostram que um sinal de tempo discreto pode ser uma sequência de comprimento finito ou infinito. Além disso, um sinal de comprimento finito definido no intervalo
+              N1 ≤ n ≤ N2 tem comprimento ou duração: <br>
+
+
+                     <p> <b>N = N2 - N1 + 1</b><br></p>
+
+              Dentre as sequências de comprimento infinito, destacamos as sequências chamadas causais definidas somente para n ≥ 0 e as sequências anticausais definidas para n < 0 . Por exemplo, a sequência do exemplo anterior é causal.<br>
+
+
       </div>
 
       <div id="Parte3" class="tabcontent">
-          <h3>Part3</h3>
-          <p>Tokyo is the capital of Japan.</p>
+          <h3>Sistema linear invariante no tempo</h3>
+          <p>Um sistema é um conjunto de expressões matemáticas que determinam o valor de sinais de saída a partir dos valores de variáveis de entrada. Estas expressões podem representar,
+             por exemplo, os efeitos de um algoritmo implementado por um processador digital, ou o modelo matemático de um filtro eletrônico, ou de um dispositivo mecânico.
+              Em projetos de engenharia, sistemas são usualmente vistos como blocos de processamento. Uma caixa preta é um sistema desconhecido, em que só temos acesso a algumas de suas variáveis de entrada e de saída.
+              Sistemas complexos podem ser decompostos em subsistemas mais simples. Um diagrama de blocos de um sistema é a sua representação a partir de elementos mais simples de processamento de sinais.
+              Quando não especificado neste artigo, estaremos considerando sistemas do tipo SISO, com uma única entrada e uma única saída, e com sinais de tempo contínuo.
+              
+              <h5>Constituição</h5>
+              A invariância no tempo implica simplesmente que a definição das operações dos blocos não pode mudar ao longo do tempo. As expressões das funções equivalentes dos blocos só podem depender das variáveis de entrada, e nunca do tempo.
+              A linearidade dos sistemas implica que todas operações utilizadas no processamento dos sinais de entrada serão lineares. Ou seja, qualquer sistema linear pode ser decomposto nos seguintes blocos de processamento:
+              Soma de dois sinais;
+              <ul>
+                  <li> Multiplicação de um sinal por um valor constante;</li>
+                  <li>Derivação de um sinal (variável) em relação ao tempo;</li>
+                  <li>Integração de um sinal (variável) em relação ao tempo;</li>
+                  <li>Deslocamento no tempo (atrasar ou adiantar o sinal por uma diferença de tempo constante).</li> 
+              </ul>
+          </p>
       </div>
   </div>
 
@@ -86,10 +150,57 @@ body {font-size:16px;}
     <div class="w3-container" id="projeto" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-green"><b>Projeto</b></h1>
         <hr style="width:50px;border:5px solid green" class="w3-round">
-        <p>Site feito como projeto sobre Sinais Discretos para a disciplina de Processamento Digital de sinais em 2019/1.</p>
-        <p>Neste site serão armazenados resumos feitos do capitulo 2 do livro "Processamento em tempo discreto de sinais. Autor: Alan V. Oppenheim", a resoluçao de alguns exercícios
-            pré-definidos e a apresentação de um projeto...
-        </p>
+        <!-- Tab links -->
+      <div class="tab">
+          <button class="tablinks" onclick="openCity(event, 'Parte1')">Código em Python</button>
+          <button class="tablinks" onclick="openCity(event, 'Parte2')">Parte2</button>
+          <button class="tablinks" onclick="openCity(event, 'Parte3')">Parte3</button>
+      </div>
+      <div id="Parte1" class="tabcontent">
+          <p>
+              <pre>
+                  <code>
+                      # -*- coding: utf-8 -*-
+                      """
+                      Bibliotecas usadas
+                      """
+                      
+                      import numpy as np
+                      import matplotlib.pyplot as plt
+                      import matplotlib.animation as animation
+                      from matplotlib.animation import PillowWriter
+                      from matplotlib import rc
+                      
+                      """
+                      Sinal ser representado
+                      """
+                      x = list(map(int, input().split(',')))
+                      y = list(map(int, input().split(',')))
+                      
+                      print(x)
+                      print(y)
+                      
+                      """
+                      Plot do Sinal
+                      """
+                      
+                      plt.title("Input Signal")
+                      plt.xlabel("Time")
+                      plt.ylabel("Amplitude")
+                      # help(plt.stem)
+                      plt.stem(x,y)
+                      plt.grid()
+                      
+                      plt.savefig('real.png', dpi=200)
+                      
+                      
+                  </code>
+                </pre>
+          </p>
+
+      </div>
+
+        
     </div>
   
   
@@ -97,10 +208,21 @@ body {font-size:16px;}
     <div class="w3-container" id="Exercícios" style="margin-top:75px">
             <h1 class="w3-xxxlarge w3-text-green"><b>Exercícios</b></h1>
             <hr style="width:50px;border:5px solid green" class="w3-round">
-            <p>Site feito como projeto sobre Sinais Discretos para a disciplina de Processamento Digital de sinais em 2019/1.</p>
-            <p>Neste site serão armazenados resumos feitos do capitulo 2 do livro "Processamento em tempo discreto de sinais. Autor: Alan V. Oppenheim", a resoluçao de alguns exercícios
-                pré-definidos e a apresentação de um projeto...
-            </p>
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'exerc')">Exercícios</button>
+            </div>
+            <div id="exerc" class="tabcontent">
+                <h3>Exercícios</h3>
+                <p><iframe src="docs/Solucionario.pdf" width="600" height="780" style="border: none;"></iframe></p>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
     </div>
 
 
@@ -146,8 +268,8 @@ body {font-size:16px;}
         <div class="w3-light-grey">
             <div class="w3-container">
                 <h3>Raimundo Correa</h3>
-                <p class="w3-opacity">Membro</p>
-                <p>Estudante de Engenharia da Computação na Universidade do Estado do Amazonas, cursando PDS em 2019/1.</p>
+                <p class="w3-opacity">Professor Coordenador</p>
+                <p>Prof. Doutor em Engenharia Elétrica pela Universidade de Pernambuco(2013). Atualmente é professor adjunto da Universidade do Estado do Amazonas</p>
             </div>
         </div>
     </div>
