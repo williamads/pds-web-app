@@ -3,9 +3,11 @@
 <title>Processamento Digital de Sinais</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" type="text/css" href="static/materialize/css/materialize.css" />
+
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -18,7 +20,7 @@ body {font-size:16px;}
 <nav class="w3-sidebar w3-green w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
-    <img src="pics/Brazão_UEA.jpg" id="img01" class="w3-image" width=80% >
+    <img src="../static/pics/Brazão_UEA.jpg" id="img01" class="w3-image" width=80% >
     <h3 class="w3-padding-64"><b>PDS<br> - Equipe 2</b></h3>
   </div>
   <div class="w3-bar-block">
@@ -79,7 +81,7 @@ body {font-size:16px;}
               Só os sinais discretos podem ser armazenados e processados em
               computadores digitais.<br>
               <figure>
-                <p><img src="pics/discreto.png" id="img02"  class="w3-image" width=30% ><br>
+                <p><img src="../static/pics/discreto.png" id="img02" class="w3-image" width=30% ><br>
                 <figcaption>Exemplificação gráfica de um sinal discreto.</figcaption>
               </figure>
               <br>
@@ -93,7 +95,7 @@ body {font-size:16px;}
               circuito eléctrico.<br>
 
               <figure>
-                  <p><img src="pics/sinal_analogico.gif" id="img02"  class="w3-image" width=30% ><br>
+                  <p><img src="../static/pics/sinal_analogico.gif" id="img02" class="w3-image" width=30% ><br>
                   <figcaption>Exemplificação gráfica de um sinal contínuo.</figcaption>
               </figure>
 
@@ -152,55 +154,30 @@ body {font-size:16px;}
         <hr style="width:50px;border:5px solid green" class="w3-round">
         <!-- Tab links -->
       <div class="tab">
-          <button class="tablinks" onclick="openCity(event, 'Parte1')">Código em Python</button>
+          <button class="tablinks" onclick="openCity(event, 'script1')">Código em Python</button>
           <button class="tablinks" onclick="openCity(event, 'Parte2')">Parte2</button>
           <button class="tablinks" onclick="openCity(event, 'Parte3')">Parte3</button>
       </div>
-      <div id="Parte1" class="tabcontent">
-          <p>
-              <pre>
-                  <code>
-                      # -*- coding: utf-8 -*-
-                      """
-                      Bibliotecas usadas
-                      """
-                      
-                      import numpy as np
-                      import matplotlib.pyplot as plt
-                      import matplotlib.animation as animation
-                      from matplotlib.animation import PillowWriter
-                      from matplotlib import rc
-                      
-                      """
-                      Sinal ser representado
-                      """
-                      x = list(map(int, input().split(',')))
-                      y = list(map(int, input().split(',')))
-                      
-                      print(x)
-                      print(y)
-                      
-                      """
-                      Plot do Sinal
-                      """
-                      
-                      plt.title("Input Signal")
-                      plt.xlabel("Time")
-                      plt.ylabel("Amplitude")
-                      # help(plt.stem)
-                      plt.stem(x,y)
-                      plt.grid()
-                      
-                      plt.savefig('real.png', dpi=200)
-                      
-                      
-                  </code>
-                </pre>
-          </p>
-
+      <div id="script1" class="tabcontent">
+          <form name="start" method="POST" action="#">
+              {% csrf_token %}
+              <div class="input-field">
+                <input name="x_field" id="x_field" type="text" class="validate">
+                <label for="x_field">Insira valores de X</label>
+              </div>
+              <div class="input-field">
+                  <input name="y_field" id="y_field" type="text" class="validate">
+                  <label for="y_field">Insira valores de Y</label>
+              </div>
+              <div align="right">
+                  <button id="start-button" type="button" class="waves-effect waves-light btn " >Iniciar</button>
+              </div>
+          </form>
+          <div class="container">
+            {% block content %}
+            {% endblock %}
+          </div>
       </div>
-
-        
     </div>
   
   
@@ -213,7 +190,7 @@ body {font-size:16px;}
             </div>
             <div id="exerc" class="tabcontent">
                 <h3>Exercícios</h3>
-                <p><iframe src="docs/Solucionario.pdf" width="600" height="780" style="border: none;"></iframe></p>
+                <p><iframe src="../static/docs/Solucionario.pdf" width="600" height="780" style="border: none;"></iframe></p>
             </div>
 
             <br>
@@ -283,6 +260,9 @@ body {font-size:16px;}
   
 <!-- End page content -->
 </div>
+<script type="text/javascript" src="static/js/startCycle.js"></script>
+<script type="text/javascript" src="static/materialize/js/materialize.js"></script>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
 
 <script>
 // Script to open and close sidebar

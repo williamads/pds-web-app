@@ -15,12 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import views
+from pds_web.views import home
+from pds_web.views import script
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'^$', views.home, name='home')
+    path('', home),
+    path('script/', script),
 ]
+
+
+
 
 #urlpatterns = [
 #    url(r'^$', pages.home, name='home_page'),
