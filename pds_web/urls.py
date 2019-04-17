@@ -22,7 +22,7 @@ from pds_web.views import script
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
-    path('script/', script),
+    path('script', script),
 ]
 
 

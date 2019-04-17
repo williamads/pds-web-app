@@ -130,3 +130,4 @@ STATICFILES_DIRS = (
    # os.path.join(BASE_DIR, 'img'),
 )
 
+APPEND_SLASH=False
