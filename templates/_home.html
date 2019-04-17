@@ -61,9 +61,10 @@ body {font-size:16px;}
       <hr style="width:50px;border:5px solid green" class="w3-round">
       <!-- Tab links -->
       <div class="tab">
-          <button class="tablinks" onclick="openCity(event, 'Parte1')">Parte1</button>
-          <button class="tablinks" onclick="openCity(event, 'Parte2')">Parte2</button>
-          <button class="tablinks" onclick="openCity(event, 'Parte3')">Parte3</button>
+          <button class="tablinks" onclick="openCity(event, 'Parte1')">Sinais</button>
+          <button class="tablinks" onclick="openCity(event, 'Parte2')">Sinais no TD</button>
+          <button class="tablinks" onclick="openCity(event, 'Parte3')">Sistemas lineares invariantes no tempo</button>
+          <button class="tablinks" onclick="openCity(event, 'Parte4')">Transformada de Fourier</button>
       </div>
 
       <!-- Tab content -->
@@ -149,16 +150,46 @@ stem (0:50, (0.9).^(0:50))
               Quando não especificado neste artigo, estaremos considerando sistemas do tipo SISO, com uma única entrada e uma única saída, e com sinais de tempo contínuo.
               
               <h5>Constituição</h5>
-              A invariância no tempo implica simplesmente que a definição das operações dos blocos não pode mudar ao longo do tempo. As expressões das funções equivalentes dos blocos só podem depender das variáveis de entrada, e nunca do tempo.
-              A linearidade dos sistemas implica que todas operações utilizadas no processamento dos sinais de entrada serão lineares. Ou seja, qualquer sistema linear pode ser decomposto nos seguintes blocos de processamento:
-              Soma de dois sinais;
+              <p>A invariância no tempo implica simplesmente que a definição das operações dos blocos não pode mudar ao longo do tempo. As expressões das funções equivalentes dos blocos só podem depender das variáveis de entrada, e nunca do tempo.</p>
+              <p>A linearidade dos sistemas implica que todas operações utilizadas no processamento dos sinais de entrada serão lineares. Ou seja, qualquer sistema linear pode ser decomposto nos seguintes blocos de processamento:</p>
+              
               <ul>
+                  <li>Soma de dois sinais;</li>
                   <li> Multiplicação de um sinal por um valor constante;</li>
                   <li>Derivação de um sinal (variável) em relação ao tempo;</li>
                   <li>Integração de um sinal (variável) em relação ao tempo;</li>
                   <li>Deslocamento no tempo (atrasar ou adiantar o sinal por uma diferença de tempo constante).</li> 
               </ul>
+              <h5>Princípio da Superposição</h5>
+              <p>
+                  A propriedade mais importante de um sistema linear invariante no tempo é o princípio da superposição. Este princípio diz que a saída de um sinal formado pela combinação linear de diferentes sinais, é igual à mesma combinação aplicada aos sinais de saída gerados por cada sinal original separadamente. Ou seja, suponha a existência de dois sinais x(t) e y(t). Cada um desses sinais, se aplicados individualmente a um certo sistema H, criam as saídas x'(t) e  y'(t). Se a entrada do sistema for a combinação linear ax(t)+by(t), a saída será ax'(t)+by'(t).
+              </p>
+
+              <h5>Teorema da Convolução</h5>
+              <p>
+                  <p>O teorema da convolução é uma ferramenta extremamente útil para se trabalhar com SLITs. Para compreender o seu funcionamento, é preciso antes estudar o conceito de resposta a impulso e de convolução.</p>
+                  <p>A resposta a impulso de um sistema o caracteriza completamente, e seu sinal de saída é igual a seu sinal de entrada convoluído por sua resposta a impulso. Por causa do teorema da convolução, também é possível estudar os sistemas no Domínio da frequência.</p>
+                  <p>Dadas as duas respostas em frequência de dois sistemas, se ligarmos a saída de um na entrada do outro, a resposta em frequência do sistema total será dada pela multiplicação ponto a ponto das duas respostas. Assim, Htotal(w)=H1(w)H2(w).</p>
+                  
+              </p>
           </p>
+      </div>
+      <div id="Parte4" class="tabcontent">
+          <h3>Transformada de Fourier</h3>
+          <h5>Definição:</h5>
+          <p>Diversas notações são convencionadas para denotar a transformação de Fourier de uma função f:R -> C. Utilizaremos a seguinte representação:</p>
+          <figure>
+              <p><img src="../static/pics/f1.svg" id="img05" class="w3-image" width=50% ><br>
+          </figure>
+          <figure>
+              <p><img src="../static/pics/f2.svg" id="img05" class="w3-image" width=50% ><br>
+          </figure>
+          <figure>
+              <p><img src="../static/pics/f3.svg" id="img05" class="w3-image" width=50% ><br>
+          </figure>
+          <figure>
+              <p><img src="../static/pics/f4.svg" id="img05" class="w3-image" width=50% ><br>
+          </figure>
       </div>
   </div>
 
