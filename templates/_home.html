@@ -114,16 +114,30 @@ body {font-size:16px;}
           (a) x[n] = n², −6 ≤ n ≤ 6<br>
             Este sinal é constituído das seguintes amostras x[n]  = {36, 25,16, 9, 4, 1, 0, 1, 4, 9,16, 25, 36}.<br>
              A figura a seguir mostra um gráfico deste sinal: stem(-6:6, (-6:6).^2); <br>
+             <figure>
+              <p><img src="../static/pics/grafico1.png" id="img02" class="w3-image" width=30% ><br>
+              <figcaption>Gráfico do sinal dado.</figcaption>
+             </figure>
+             <br>
+            <p>
+             A segunda amostra deste sinal é x[−5] = 25 . Este sinal tem 6−(−6) +1 = 13 amostras. 
+(b) y[n] = (0, 9)n, n ∈ ℕ 
+As amostras deste sinal são y[n]={1; 0, 9; 0, 81; 0, 729; 0, 6561;...}. A figura a seguir mostra as 50 primeiras amostras deste sinal. 
+Repare que este é um sinal com infinitas amostras e, por exemplo, y[0] = 1. 
+stem (0:50, (0.9).^(0:50))
+            </p>
+            <figure>
+              <p><img src="../static/pics/grafico2.png" id="img05" class="w3-image" width=30% ><br>
+              <figcaption>Gráfico do sinal dado.</figcaption>
+            </figure>
+            <p>
+              Os exemplos acima mostram que um sinal de tempo discreto pode ser uma sequência de comprimento finito ou infinito. Além disso, um sinal de comprimento finito definido no intervalo N1 ≤ n ≤ N2 tem comprimento ou duração: 
 
-             Exemplos acima mostram que um sinal de tempo discreto pode ser uma sequência de comprimento finito ou infinito. Além disso, um sinal de comprimento finito definido no intervalo
-              N1 ≤ n ≤ N2 tem comprimento ou duração: <br>
-
-
-                     <p> <b>N = N2 - N1 + 1</b><br></p>
-
-              Dentre as sequências de comprimento infinito, destacamos as sequências chamadas causais definidas somente para n ≥ 0 e as sequências anticausais definidas para n < 0 . Por exemplo, a sequência do exemplo anterior é causal.<br>
-
-
+              <p><br>N = N2 - N1 + 1<br></p>
+              
+              • Dentre as sequências de comprimento infinito, destacamos as sequências chamadas causais definidas somente para n ≥ 0 e as sequências anticausais definidas para n < 0 . Por exemplo, a sequência do exemplo anterior é causal. 
+              
+            </p>
       </div>
 
       <div id="Parte3" class="tabcontent">
