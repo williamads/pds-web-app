@@ -9,7 +9,7 @@
             method: "POST",
             url: "/script",
             data: objForm
-        })
+        }).done(button.className = 'waves-effect waves-light btn')
     }
     function serializeForm(formName) {
         var fields = document.forms[formName].querySelectorAll("input, select, textarea");

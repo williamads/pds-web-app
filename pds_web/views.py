@@ -23,9 +23,14 @@ def script(request):
             print(data)
         x = request.POST.get('x_field').split(',')
         y = request.POST.get('y_field').split(',')
+
+        #transformando de str para float
+        x = [float(i) for i in x]
+        y = [float(n) for n in y]
+
         representacao_sinal(x,y)
 
-        return JsonResponse({'success': 'ok'})
+        return JsonResponse({'sucess': 'true'})
     else:
         return JsonResponse({'success': 'false'})
 
@@ -33,8 +38,7 @@ def representacao_sinal(x, y):
     """
     Plot do Sinal
     """
-    x = [float(i) for i in x]
-    y = [float(n) for n in y]
+
 
     print(x)
     print(y)
@@ -43,6 +47,6 @@ def representacao_sinal(x, y):
     plt.ylabel("Amplitude")
     # help(plt.stem)
     plt.stem(x,y)
-    plt.savefig("templates/pics/repres.png", dpi=400)
+    plt.savefig("static/pics/repres.png", dpi=400)
     #plt.grid()
 
