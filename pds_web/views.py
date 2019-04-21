@@ -25,12 +25,12 @@ def script(request):
         y = request.POST.get('y_field').split(',')
 
         #transformando de str para float
-        x = [float(i) for i in x]
-        y = [float(n) for n in y]
+        x = [int(i) for i in x]
+        y = [int(n) for n in y]
 
-        representacao_sinal(x,y)
+        d = representacao_sinal(x,y)
 
-        return JsonResponse({'sucess': 'true'})
+        return JsonResponse({'success': 'true', 'signal': d})
     else:
         return JsonResponse({'success': 'false'})
 
@@ -38,15 +38,17 @@ def representacao_sinal(x, y):
     """
     Plot do Sinal
     """
+    res = []
 
-
-    print(x)
-    print(y)
-    plt.title("Input Signal")
-    plt.xlabel("Time")
-    plt.ylabel("Amplitude")
+    for a, b in zip(x, y):
+        res.append({'x': a, 'y': b})
+    print(res)
+    return res
+    # plt.title("Input Signal")
+    # plt.xlabel("Time")
+    # plt.ylabel("Amplitude")
     # help(plt.stem)
-    plt.stem(x,y)
-    plt.savefig("static/pics/repres.png", dpi=400)
+    # plt.stem(x,y)
+    # plt.savefig("static/pics/repres.png", dpi=400)
     #plt.grid()
 

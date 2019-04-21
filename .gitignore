@@ -1,0 +1,6 @@
+
+\.vscode/
+
+pds_web/__pycache__/
+
+venv/

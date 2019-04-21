@@ -1,4 +1,4 @@
-(function(){
+(function()
     var button = document.getElementById('start-button');
     button.addEventListener('click', foo);
     function foo(){
@@ -8,7 +8,11 @@
         $.ajax({
             method: "POST",
             url: "/script",
-            data: objForm
+            data: objForm,
+            success: function(response) {
+                console.log(response.signal);
+                drawChart1(response.signal);
+            }
         }).done(button.className = 'waves-effect waves-light btn')
     }
     function serializeForm(formName) {
