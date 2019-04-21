@@ -203,8 +203,27 @@ stem (0:50, (0.9).^(0:50))
         <!-- Tab links -->
       <div class="tab">
           <button class="tablinks" onclick="openCity(event, 'script1')">Código em Python</button>
-          <button class="tablinks" onclick="openCity(event, 'Parte2')">Parte2</button>
-          <button class="tablinks" onclick="openCity(event, 'Parte3')">Parte3</button>
+          <button class="tablinks" onclick="openCity(event, 'Parte2')">Convolução</button>
+          <!-- <button class="tablinks" onclick="openCity(event, 'Parte3')">Parte3</button> -->
+      </div>
+      <div id="Parte2" class="otherclass">
+          <form name="convolution-form" action="#">
+              {% csrf_token %}
+              <div class="input-field">
+                <input name="input_signal" id="input_signal" type="text" class="validate">
+                <label for="input_signal">Insira o sinal de Entrada</label>
+              </div>
+              <div class="input-field">
+                  <input name="kernel" id="kernel" type="text" class="validate">
+                  <label for="kernel">Insira o Kernel</label>
+              </div>
+              <div align="right">
+                  <button id="convolution-button" type="button" class="waves-effect waves-light btn " >Iniciar</button>
+              </div>
+          </form>
+          <div class="container">
+              <canvas id="convolution-chart" width="400" height="400"></canvas> 
+          </div>
       </div>
       <div id="script1" class="tabcontent">
           <form name="start" action="#">
