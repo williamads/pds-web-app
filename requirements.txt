@@ -3,6 +3,7 @@ bcrypt==3.1.6
 cffi==1.12.2
 cryptography==2.6.1
 cycler==0.10.0
+dj-database-url==0.5.0
 Django==2.1.7
 get==2019.3.22
 kiwisolver==1.1.0
