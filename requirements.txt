@@ -6,6 +6,7 @@ cycler==0.10.0
 dj-database-url==0.5.0
 Django==2.1.7
 get==2019.3.22
+gunicorn==19.9.0
 kiwisolver==1.1.0
 matplotlib==3.0.3
 numpy==1.16.3
@@ -23,3 +24,4 @@ request==2019.3.22
 six==1.12.0
 sqlparse==0.3.0
 whitenoise==4.1.2
+pip-19.1
