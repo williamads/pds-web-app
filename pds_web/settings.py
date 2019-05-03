@@ -133,8 +133,8 @@ STATICFILES_DIRS = (
    # os.path.join(BASE_DIR, 'img'),
 )
 
-os.makedirs(STATIC_TMP, exist_ok=True)
-os.makedirs(STATIC_ROOT, exist_ok=True)
+#os.makedirs(STATIC_TMP, exist_ok=True)
+#os.makedirs(STATIC_ROOT, exist_ok=True)
 
 APPEND_SLASH=False
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
