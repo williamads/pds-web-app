@@ -202,30 +202,11 @@ stem (0:50, (0.9).^(0:50))
         <hr style="width:50px;border:5px solid green" class="w3-round">
         <!-- Tab links -->
       <div class="tab">
-          <button class="tablinks" onclick="openCity(event, 'script1')">Código em Python</button>
-          <button class="tablinks" onclick="openCity(event, 'Parte2')">Convolução</button>
+          <button class="tablinks" onclick="openCity(event, 'representacao')">Representação do sinal</button>
+          <button class="tablinks" onclick="openCity(event, 'convolucao')">Convolução</button>
           <!-- <button class="tablinks" onclick="openCity(event, 'Parte3')">Parte3</button> -->
       </div>
-      <div id="Parte2" class="otherclass">
-          <form name="convolution-form" action="#">
-              {% csrf_token %}
-              <div class="input-field">
-                <input name="input_signal" id="input_signal" type="text" class="validate">
-                <label for="input_signal">Insira o sinal de Entrada</label>
-              </div>
-              <div class="input-field">
-                  <input name="kernel" id="kernel" type="text" class="validate">
-                  <label for="kernel">Insira o Kernel</label>
-              </div>
-              <div align="right">
-                  <button id="convolution-button" type="button" class="waves-effect waves-light btn " >Iniciar</button>
-              </div>
-          </form>
-          <div class="container">
-              <canvas id="convolution-chart" width="400" height="400"></canvas> 
-          </div>
-      </div>
-      <div id="script1" class="tabcontent">
+        <div id="representacao" class="tabcontent">
           <form name="start" action="#">
               {% csrf_token %}
               <div class="input-field">
@@ -241,10 +222,30 @@ stem (0:50, (0.9).^(0:50))
               </div>
           </form>
           <div class="container">
-              <canvas id="chart1" width="400" height="400"></canvas> 
+              <canvas id="chart1" width="300" height="300"></canvas>
           </div>
       </div>
     </div>
+      <div id="convolucao" class="tabcontent">
+          <form name="convolution-form" action="#">
+              {% csrf_token %}
+              <div class="input-field">
+                <input name="input_signal" id="input_signal" type="text" class="validate">
+                <label for="input_signal">Insira o sinal de Entrada</label>
+              </div>
+              <div class="input-field">
+                  <input name="kernel" id="kernel" type="text" class="validate">
+                  <label for="kernel">Insira o Kernel</label>
+              </div>
+              <div align="right">
+                  <button id="convolution-button" type="button" class="waves-effect waves-light btn " >Iniciar</button>
+              </div>
+          </form>
+          <div class="container">
+              <canvas id="convolution-chart" width="300" height="300"></canvas> 
+          </div>
+      </div>
+
   
   
   <!-- exercícios -->
