@@ -67,6 +67,7 @@ body {font-size:16px;}
           <button class="tablinks" onclick="openCity(event, 'Parte2')">Sinais no TD</button>
           <button class="tablinks" onclick="openCity(event, 'Parte3')">Sistemas lineares invariantes no tempo</button>
           <button class="tablinks" onclick="openCity(event, 'Parte4')">Transformada de Fourier</button>
+          <button class="tablinks" onclick="openCity(event, 'Parte5')">Transformada Z</button>
       </div>
 
       <!-- Tab content -->
@@ -194,6 +195,55 @@ stem (0:50, (0.9).^(0:50))
           </figure>
 
       </div>
+
+      <div id="Parte5" class="tabcontent">
+        <h3>Transformada Z</h3>
+        <h5>Definição:</h5>
+        <p>A transformada Z de uma sequência x[n] é definida como:</p>
+
+        <figure>
+          <p><img src="../static/pics/zimg1.png" id="img05" class="w3-image" width=23% ><br>
+          <figcaption>Equação 1.</figcaption>
+        </figure>
+        <br><br>
+        <p>Essa equação é, em geral, uma soma infinita, ou uma série de potências infinita, sendo z considerada uma
+          variável complexa. Às vezes, é útil considerar a equação 1 como um operador que transforma uma sequência em uma função.
+          Ou seja, o operador da transformada Z é definido como:</p>
+
+        <figure>
+            <p><img src="../static/pics/zimg2.png" id="img05" class="w3-image" width=30% ><br>
+            <figcaption>Equação 2.</figcaption>
+        </figure>
+        <br><br>
+        <p>O que transforma a sequência x[n] em uma função X(z), sendo z uma variável complexa contínua. A correspondência única entre uma sequência e sua transformada Z será indicada pela notação:</p>
+        
+        <figure>
+            <p><img src="../static/pics/zimg3.png" id="img05" class="w3-image" width=20% ><br>
+            <figcaption>Equação 3.</figcaption>
+        </figure>
+        
+        <br><br>
+        <p>Esta transformada, conforme equação 1, é denominada transformada Z de dois lados ou bilateral.
+          Porém, também existe a transformada Z de um lado ou unilateral, que é definida como:</p>
+
+        <figure>
+            <p><img src="../static/pics/zimg4.png" id="img05" class="w3-image" width=20% ><br>
+            <figcaption>Equação 4.</figcaption>
+        </figure>
+        
+        <br><br>
+        <p>As transformadas bilaterias e unilaterais são idênticas se e somente se x[n]=0 para n < 0. 
+          <br><br> 
+          Observação interessante: substituindo a variável complexa Z na equação 1 pela quantidade complexa e^(jw), a transformada Z se reduz à transformada de Fourier. 
+          <br><br>
+          Podemos expressar a variável complexa Z em forma polar como z = re^(jw). Dessa forma a equação 1 torna-se a seguinte:</p>
+        <figure>
+            <p><img src="../static/pics/zimg5.png" id="img05" class="w3-image" width=30% ><br>
+            <figcaption>Equação 5.</figcaption>
+        </figure>
+        
+    </div>
+
   </div>
 
 <!-- Projeto -->
