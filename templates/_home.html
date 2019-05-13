@@ -51,8 +51,8 @@ body {font-size:16px;}
     <h1 class="w3-xxxlarge w3-text-green"><b>Processamento Digital de sinais</b></h1>
     <hr style="width:50px;border:5px solid green" class="w3-round">
     <p>Site feito como projeto sobre Sinais Discretos para a disciplina de Processamento Digital de sinais em 2019/1.</p>
-    <p>Neste site serão armazenados resumos feitos do capitulo 2 do livro "Processamento em tempo discreto de sinais. Autor: Alan V. Oppenheim", a resoluçao de alguns exercícios
-        pré-definidos e a apresentação de um projeto...
+    <p>Neste site serão armazenados resumos dos capítulos do livro Processamento em Tempo Discreto de Sinais de autoria de Alan V. Oppenheim. Além disto, a resolução de alguns exercícios
+        pré-definidos e a apresentação de projetos.
     </p>
   </div>
 
@@ -67,6 +67,7 @@ body {font-size:16px;}
           <button class="tablinks" onclick="openCity(event, 'Parte2')">Sinais no TD</button>
           <button class="tablinks" onclick="openCity(event, 'Parte3')">Sistemas lineares invariantes no tempo</button>
           <button class="tablinks" onclick="openCity(event, 'Parte4')">Transformada de Fourier</button>
+          <button class="tablinks" onclick="openCity(event, 'Parte5')">Transformada Z</button>
       </div>
 
       <!-- Tab content -->
@@ -194,6 +195,55 @@ stem (0:50, (0.9).^(0:50))
           </figure>
 
       </div>
+
+      <div id="Parte5" class="tabcontent">
+        <h3>Transformada Z</h3>
+        <h5>Definição:</h5>
+        <p>A transformada Z de uma sequência x[n] é definida como:</p>
+
+        <figure>
+          <p><img src="../static/pics/zimg1.png" id="img05" class="w3-image" width=23% ><br>
+          <figcaption>Equação 1.</figcaption>
+        </figure>
+        <br><br>
+        <p>Essa equação é, em geral, uma soma infinita, ou uma série de potências infinita, sendo z considerada uma
+          variável complexa. Às vezes, é útil considerar a equação 1 como um operador que transforma uma sequência em uma função.
+          Ou seja, o operador da transformada Z é definido como:</p>
+
+        <figure>
+            <p><img src="../static/pics/zimg2.png" id="img05" class="w3-image" width=30% ><br>
+            <figcaption>Equação 2.</figcaption>
+        </figure>
+        <br><br>
+        <p>O que transforma a sequência x[n] em uma função X(z), sendo z uma variável complexa contínua. A correspondência única entre uma sequência e sua transformada Z será indicada pela notação:</p>
+        
+        <figure>
+            <p><img src="../static/pics/zimg3.png" id="img05" class="w3-image" width=20% ><br>
+            <figcaption>Equação 3.</figcaption>
+        </figure>
+        
+        <br><br>
+        <p>Esta transformada, conforme equação 1, é denominada transformada Z de dois lados ou bilateral.
+          Porém, também existe a transformada Z de um lado ou unilateral, que é definida como:</p>
+
+        <figure>
+            <p><img src="../static/pics/zimg4.png" id="img05" class="w3-image" width=20% ><br>
+            <figcaption>Equação 4.</figcaption>
+        </figure>
+        
+        <br><br>
+        <p>As transformadas bilaterias e unilaterais são idênticas se e somente se x[n]=0 para n < 0. 
+          <br><br> 
+          Observação interessante: substituindo a variável complexa Z na equação 1 pela quantidade complexa e^(jw), a transformada Z se reduz à transformada de Fourier. 
+          <br><br>
+          Podemos expressar a variável complexa Z em forma polar como z = re^(jw). Dessa forma a equação 1 torna-se a seguinte:</p>
+        <figure>
+            <p><img src="../static/pics/zimg5.png" id="img05" class="w3-image" width=30% ><br>
+            <figcaption>Equação 5.</figcaption>
+        </figure>
+        
+    </div>
+
   </div>
 
 <!-- Projeto -->
@@ -257,7 +307,7 @@ stem (0:50, (0.9).^(0:50))
             </div>
             <div id="exerc" class="tabcontent">
                 <h3>Exercícios</h3>
-                <p><iframe src="../static/docs/Solucionario.pdf" width="600" height="780" style="border: none;"></iframe></p>
+                <p><iframe src="../static/docs/Solucionario1.pdf" width="600" height="780" style="border: none;"></iframe></p>
             </div>
 
             <br>
