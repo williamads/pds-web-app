@@ -18,6 +18,7 @@ from django.urls import path
 from pds_web.views import home
 from pds_web.views import script
 from pds_web.views import convolution_request
+from pds_web.views import z_transform_request
 
 
 urlpatterns = [
@@ -25,6 +26,7 @@ urlpatterns = [
     path('', home),
     path('script', script),
     path('convolution', convolution_request),
+    path('z-transform', z_transform_request),
 ]
 
 
