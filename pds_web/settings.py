@@ -25,8 +25,7 @@ SECRET_KEY = 'pfy0fvygcwd$*!8#^-2+36k487f)&l_p&@nq@o+^81csu$4it_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['pds2019.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -130,4 +129,15 @@ STATICFILES_DIRS = (
    # os.path.join(BASE_DIR, 'img'),
 )
 
+<<<<<<< Updated upstream
 APPEND_SLASH=False
+=======
+#os.makedirs(STATIC_TMP, exist_ok=True)
+#os.makedirs(STATIC_ROOT, exist_ok=True)
+
+APPEND_SLASH=False
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#prod_db  =  dj_database_url.config(conn_max_age=500)
+#DATABASES['default'].update(prod_db)
+>>>>>>> Stashed changes
