@@ -52,7 +52,20 @@
             url: "/z-transform",
             data: objForm,
             success: function(response) {
-                console.log(response.signal);
+                image2base64(response) // you can also to use url
+                .then(
+                    (response) => {
+                        console.log(response); //cGF0aC90by9maWxlLmpwZw==
+                    }
+                )
+                // console.log("data:image/jpg;base64,"+Convert.ToBase64String(response));
+                // document.getElementById('z-transform-chart').innerHTML = response;
+                // var blob = new Blob(response, {type: "application/zip"});
+                // var objectURL = window.URL.createObjectURL(blob);
+                // console.log(objectURL)
+                // this is the trick - generates url like 
+                // blob:http://localhost/adb50c88-9468-40d9-8b0b-1f6ec8bb5a32
+                // myImage.src = objectURL;
                 //drawConvolutionChart(response.signal);
             }
         }).done(button.className = 'waves-effect waves-light btn')

@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 from matplotlib import patches
 from matplotlib.pyplot import axvline, axhline
 from collections import defaultdict
+from django.http import HttpResponse
+from PIL import Image
 
 
 # Create your views here.
@@ -103,26 +105,22 @@ def process_convolution(input_signal, input_time, kernel_signal, kernel_time):
     return res
     
 
-
-
-def zplane(z, p, filename=None):
+def zplane(z, p):
     
-    ax = plt.subplot(2, 2, 1)
+    ax = plt.subplot()
     
     # Adicionando circulo e eixos zero
     unit_circle = patches.Circle((0,0), radius=1, fill=False,
-                                 color='black', ls='solid', alpha=0.1)
+                                 color='black', ls='solid', alpha=1)
     ax.add_patch(unit_circle)
-    axvline(0, color='0.7')
-    axhline(0, color='0.7')
  
     # Plotando os polos e setando propiedades
-    poles = plt.plot(p.real, p.imag, 'x', markersize=9, alpha=0.5)
+    poles = plt.plot(p.real, p.imag, 'x', markersize=9, alpha=1)
 
     
     # Plotando os zeros e setando propiedades
     zeros = plt.plot(z.real, z.imag,  'o', markersize=9, 
-             color='none', alpha=0.5,
+             color='none', alpha=1,
              markeredgecolor=poles[0].get_color(),
              )
 
@@ -131,6 +129,8 @@ def zplane(z, p, filename=None):
     r = 1.5 * np.amax(np.concatenate((abs(z), abs(p), [1])))
     plt.axis('scaled')
     plt.axis([-r, r, -r, r])
+
+    grid = 0
 
     
     """
@@ -171,47 +171,17 @@ def zplane(z, p, filename=None):
                         fontsize=13,
                         )
 
-    if filename is None:
-        plt.show()
-    else:
-        plt.savefig(filename)
-        print ('Plote dos Polos e zero salvos em ' + str(filename))
+    plt.title('Plano Z')
+    plt.grid()
+    path = 'static/pics'
+    plt.savefig('{}/zerosnpoles.jpeg'.format(path), dpi=200)
+    plt.clf()
 
-
-
-    # b = list(map(int, input().split()))
-    # a = list(map(int, input().split()))
-
-    # b = array(b) # ENTRAR COM O POLINÔMIO DE ENTRADA AQUI ==-------<==========-------<==========-------<==========-------<====
-    # a = array(a)
-
-    # # Descobrindo os polos e zeros
-    # z, p, k = tf2zpk(b, a)
-
-    # # Plotando os zeros e polos
-    # figure(figsize=(16, 9))
-    # subplot(2, 2, 1)
-    # zplane(z, p)
-    # grid(True, color='0.9', linestyle='-', which='both', axis='both')
-    # title('Poles and zeros')
-
-    # # Printando os zeros e polos
-    # print (str(len(z)) + " zeros: " + str(z))
-    # print (str(len(p)) + " poles: " + str(p))
 
 
 
 @csrf_exempt
 def z_transform_request(request):
-    from scipy.signal import (freqz, butter, bessel, cheby1, cheby2, ellip, 
-                            tf2zpk, zpk2tf, lfilter, buttap, bilinear, cheb2ord, cheb2ap
-                            )
-    from numpy import asarray, tan, array, pi, arange, cos, log10, unwrap, angle
-    from matplotlib.pyplot import (stem, title, grid, show, plot, xlabel, 
-                                ylabel, subplot, xscale, figure, xlim, 
-                                margins)
-    a = []
-    b = []
     if request.method == "POST":
         b = request.POST.get('den_signal').split()
         a = request.POST.get('num_signal').split()
@@ -221,22 +191,15 @@ def z_transform_request(request):
         a = [float(i) for i in a]
         b = [float(n) for n in b]
 
+        zplane(np.roots(a), np.roots(b))
 
-        b = array(b) # ENTRAR COM O POLINÔMIO DE ENTRADA AQUI ==-------<==========-------<==========-------<==========-------<====
-        a = array(a)
-
-
-        z, p, k = tf2zpk(b, a)
-        print("aqui")
-
-        z = z.tolist()
-        p = p.tolist()
-
-
-        z = [float(i) for i in z]
-        p = [float(n) for n in p]
-
-
-        return JsonResponse({'success': 'true', 'zeros': z, 'poles': p})
-    else:
-        return JsonResponse({'success': 'false'})
+        path = 'static/pics'
+        valid_image = '{}/zerosnpoles.jpeg'.format(path)
+        try:
+            with open(valid_image, "rb") as f:
+                return HttpResponse(f.read(), content_type="image/jpeg")
+        except IOError:
+            red = Image.new('RGBA', (1, 1), (255,0,0,0))
+            response = HttpResponse(content_type="image/jpeg")
+            red.save(response, "JPEG")
+            return response
