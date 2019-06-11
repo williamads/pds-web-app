@@ -195,9 +195,10 @@ def z_transform_request(request):
 
         path = 'static/pics'
         valid_image = '{}/zerosnpoles.jpeg'.format(path)
+        import base64
         try:
             with open(valid_image, "rb") as f:
-                return HttpResponse(f.read(), content_type="image/jpeg")
+                return HttpResponse(base64.b64encode(f.read()), content_type="image/base64")
         except IOError:
             red = Image.new('RGBA', (1, 1), (255,0,0,0))
             response = HttpResponse(content_type="image/jpeg")

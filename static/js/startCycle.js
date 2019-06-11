@@ -52,12 +52,13 @@
             url: "/z-transform",
             data: objForm,
             success: function(response) {
-                image2base64(response) // you can also to use url
-                .then(
-                    (response) => {
-                        console.log(response); //cGF0aC90by9maWxlLmpwZw==
-                    }
-                )
+		var image = new Image();
+		image.src = "data:image/png;base64,"+response;
+		var imageHolder = document.getElementById("z-transform-chart");
+		while (imageHolder.firstChild) {
+		    imageHolder.removeChild(imageHolder.firstChild);
+		}
+		imageHolder.append(image);
                 // console.log("data:image/jpg;base64,"+Convert.ToBase64String(response));
                 // document.getElementById('z-transform-chart').innerHTML = response;
                 // var blob = new Blob(response, {type: "application/zip"});

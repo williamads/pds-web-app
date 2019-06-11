@@ -51,3 +51,13 @@
     display: block;
     padding: 20px;
   }
+
+#z-transform-chart img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+
+
+
