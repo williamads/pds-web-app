@@ -42,8 +42,8 @@
     
 //  z transform reqeuest begin
     var zTranformButton = document.getElementById('z-transform-button');
-    zTranformButton.addEventListener('click', conv_request);
-    function conv_request(){
+    zTranformButton.addEventListener('click', z_transform_request);
+    function z_transform_request(){
         button.className = 'waves-effect waves-light btn disabled';
         var objForm = serializeForm("z-transform-form");
         console.log(objForm);
@@ -52,26 +52,16 @@
             url: "/z-transform",
             data: objForm,
             success: function(response) {
-		var image = new Image();
-		image.src = "data:image/png;base64,"+response;
-		var imageHolder = document.getElementById("z-transform-chart");
-		while (imageHolder.firstChild) {
-		    imageHolder.removeChild(imageHolder.firstChild);
-		}
-		imageHolder.append(image);
-                // console.log("data:image/jpg;base64,"+Convert.ToBase64String(response));
-                // document.getElementById('z-transform-chart').innerHTML = response;
-                // var blob = new Blob(response, {type: "application/zip"});
-                // var objectURL = window.URL.createObjectURL(blob);
-                // console.log(objectURL)
-                // this is the trick - generates url like 
-                // blob:http://localhost/adb50c88-9468-40d9-8b0b-1f6ec8bb5a32
-                // myImage.src = objectURL;
-                //drawConvolutionChart(response.signal);
+                var image = new Image();
+                image.src = "data:image/png;base64,"+response;
+                var imageHolder = document.getElementById("z-transform-chart");
+                while (imageHolder.firstChild) {
+                    imageHolder.removeChild(imageHolder.firstChild);
+                }
+                imageHolder.append(image);
             }
         }).done(button.className = 'waves-effect waves-light btn')
     }
-    zTranformButton.addEventListener('click', conv_request);
 // z transform request end
 
     function serializeForm(formName) {
