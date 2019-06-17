@@ -53,7 +53,7 @@
             data: objForm,
             success: function(response) {
                 var image = new Image();
-                image.src = "data:image/png;base64,"+response;
+                image.src = "data:image/png;base64"+response;
                 var imageHolder = document.getElementById("z-transform-chart");
                 while (imageHolder.firstChild) {
                     imageHolder.removeChild(imageHolder.firstChild);
