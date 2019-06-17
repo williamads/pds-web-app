@@ -53,7 +53,7 @@
             data: objForm,
             success: function(response) {
                 var image = new Image();
-                image.src = "data:image/png;base64"+response;
+                image.src = "data:image/png;base64;"+response;
                 var imageHolder = document.getElementById("z-transform-chart");
                 while (imageHolder.firstChild) {
                     imageHolder.removeChild(imageHolder.firstChild);
@@ -70,8 +70,7 @@
         for (var i = 0, len = fields.length; i < len; i++) {
             if (fields[i].name) {
                 var key = fields[i].name;
-                obj[key] = fields[i].type == "checkbox" ? fields[i].checked : fields[i].value;
-                ;
+                obj[key] = fields[i].type === "checkbox" ? fields[i].checked : fields[i].value;
             }
         }
         return obj;
