@@ -23,7 +23,7 @@ from pds_web.views import z_transform_request
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('/', home),
     path('script', script),
     path('convolution', convolution_request),
     path('z-transform', z_transform_request),
