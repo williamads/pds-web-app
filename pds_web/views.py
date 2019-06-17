@@ -204,3 +204,37 @@ def z_transform_request(request):
             response = HttpResponse(content_type="image/jpeg")
             red.save(response, "JPEG")
             return response
+
+
+def discretize(frequency, phase):
+    size = 2 * frequency
+    domain = range(phase, size + phase)
+    for e in domain:
+        e = e * frequency
+
+    res = list(np.sin(domain))
+    print("len res", len(domain))
+    time_input = range(size)
+    resp = []
+    for a, b in zip(time_input, res):
+        resp.append({'x': a, 'y': b})
+    print(resp)
+    return resp
+
+
+@csrf_exempt
+def discretize_request(request):
+    if request.method == "POST":
+        a = request.POST.get('frequency')
+        b = request.POST.get('phase')
+        print(a, b)
+        
+        #transformando de str para float
+        a = int(a)
+        b = int(b)
+
+        d = discretize(a, b)
+
+        return JsonResponse({'success': 'true', 'signal': d})
+    else:
+        return JsonResponse({'success': 'false'})

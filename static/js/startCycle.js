@@ -64,6 +64,25 @@
     }
 // z transform request end
 
+//  discretize reqeuest begin
+var zTranformButton = document.getElementById('discretize-button');
+zTranformButton.addEventListener('click', discretize_request);
+function discretize_request(){
+    button.className = 'waves-effect waves-light btn disabled';
+    var objForm = serializeForm("discretize-form");
+    console.log(objForm);
+    $.ajax({
+        method: "POST",
+        url: "/discretize",
+        data: objForm,
+        success: function(response) {
+            console.log(response.signal);
+            drawDiscretizeChart(response.signal);
+        }
+    }).done(button.className = 'waves-effect waves-light btn')
+}
+// discretize request end
+
     function serializeForm(formName) {
         var fields = document.forms[formName].querySelectorAll("input, select, textarea");
         var obj = {};

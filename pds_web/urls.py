@@ -19,6 +19,7 @@ from pds_web.views import home
 from pds_web.views import script
 from pds_web.views import convolution_request
 from pds_web.views import z_transform_request
+from pds_web.views import discretize_request
 
 
 urlpatterns = [
@@ -27,6 +28,7 @@ urlpatterns = [
     path('script', script),
     path('convolution', convolution_request),
     path('z-transform', z_transform_request),
+    path('discretize', discretize_request),
 ]
 
 
