@@ -26,7 +26,7 @@ SECRET_KEY = 'pfy0fvygcwd$*!8#^-2+36k487f)&l_p&@nq@o+^81csu$4it_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pds2019.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['pds2019.herokuapp.com', '127.0.0.1', 'secure-inlet-29705.herokuapp.com']
 
 # Application definition
 

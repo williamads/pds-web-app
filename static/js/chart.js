@@ -20,6 +20,7 @@ function drawChart1(myData) {
     });
 }
 function drawConvolutionChart(myData) {
+    console.log(myData);
     var ctx = document.getElementById('convolution-chart');
     var scatterChart = new Chart(ctx, {
         type: 'scatter',
