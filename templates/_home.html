@@ -257,6 +257,7 @@ stem (0:50, (0.9).^(0:50))
           <button class="tablinks" onclick="openCity(event, 'repres')">Representação do Sinal</button>
           <button class="tablinks" onclick="openCity(event, 'convolution')">Convolução</button>
           <button class="tablinks" onclick="openCity(event, 'z-transform')">Transformada Z</button>
+          <button class="tablinks" onclick="openCity(event, 'discretize')">Amostragem sen(&#x3C9;t + &#x3C6;)</button>
           <!-- <button class="tablinks" onclick="openCity(event, 'Parte3')">Parte3</button> -->
       </div>
       <div id="repres" class="tabcontent">
@@ -316,6 +317,25 @@ stem (0:50, (0.9).^(0:50))
          
           </div>
         </div>
+        <div id="discretize" class="tabcontent">
+          <form name="discretize-form" action="#">
+              {% csrf_token %}
+              <div class="input-field">
+                <label for="frequency">Frequência</label>
+                <input name="frequency" id="frequency" type="text" class="validate">
+              </div>
+              <div class="input-field">
+                  <input name="phase" id="phase" type="text" class="validate">
+                  <label for="phase">Fase</label>
+              </div>
+              <div aling="right">
+                  <button id="discretize-button" type="button" class="waves-effect waves-light btn " >Iniciar</button>
+              </div>
+          </form>
+        <div class="container">
+            <canvas id="discretize-chart" width="300" height="100"></canvas> 
+        </div>
+        </div>        
     </div>
   
   

@@ -41,3 +41,26 @@ function drawConvolutionChart(myData) {
         }
     });
 }
+
+    function drawDiscretizeChart(myData) {
+        console.log(myData);
+        var ctx = document.getElementById('discretize-chart');
+        var scatterChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Signal',
+                    backgroundColor: "#008000",
+                    data: myData 
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'linear',
+                        position: 'bottom'
+                    }]
+                }
+            }
+        }); 
+    }
