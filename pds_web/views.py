@@ -207,7 +207,7 @@ def z_transform_request(request):
 
 
 def discretize(frequency, phase):
-    size = 2 * frequency
+    size = 4 * frequency
     domain = range(phase, size + phase)
     for e in domain:
         e = e * frequency
