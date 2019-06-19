@@ -1,1 +1,1 @@
-web: gunicorn pds-web-app.wsgi --log-file -
+web: gunicorn pds_web.wsgi --log-file -
